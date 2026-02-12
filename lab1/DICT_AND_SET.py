@@ -179,3 +179,12 @@ def remove_duplicates_keep_last(nums):
 print(remove_duplicates_keep_last([1, 2, 3, 2, 4, 3, 5]))#26
 top5_sorted = lambda lst: sorted(lst, key=lambda w: (-len(w), w))[:5]
 print(top5_sorted(["apple", "banana", "pear", "kiwi", "strawberry", "melon", "fig"]))#27
+def moving_average(nums, k):
+    result = []
+    for i in range(len(nums) - k + 1):
+        window = nums[i:i+k]
+        if all(x >= 0 for x in window):
+            avg = sum(window) / k
+            result.append(avg)
+    return result
+print(moving_average([1, 2, 3, -1, 4, 5], 3))#28
