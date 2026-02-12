@@ -200,3 +200,6 @@ def pairwise_intersections(sets_list):
         result.append(sets_list[i] & sets_list[i+1])
     return result
 print(pairwise_intersections([{1,2,3}, {2,3,4}, {3,4,5}]))#32
+filter_dict = lambda d: {k: v for k, v in d.items()
+                         if sum(v)/len(v) > sum(sum(lst) for lst in d.values()) / sum(len(lst) for lst in d.values())}
+print(filter_dict({"a": [1,2], "b": [10,20], "c": [5,5]}))#33
