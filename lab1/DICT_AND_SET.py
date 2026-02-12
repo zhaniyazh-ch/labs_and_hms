@@ -152,3 +152,6 @@ def union_of_filtered_sets(sets_list):
         result |= filtered
     return result
 print(union_of_filtered_sets([{5, 11, 12}, {13, 8}, {15, 20}]))#24
+import math
+filter_dict = lambda d: {k: math.prod([x for x in v if x > 0]) for k, v in d.items() if any(x > 0 for x in v)}
+print(filter_dict({"a": [1, -2, 3], "b": [-4, -6], "c": [2, 5]}))#25
