@@ -145,3 +145,10 @@ def group_by_last_letter(words):
             result[last].append(w)
     return result
 print(group_by_last_letter(["apple", "pear", "banana", "kiwi", "papaya"]))#23
+def union_of_filtered_sets(sets_list):
+    result = set()
+    for s in sets_list:
+        filtered = {x for x in s if x > 10 and x % 2 == 1}
+        result |= filtered
+    return result
+print(union_of_filtered_sets([{5, 11, 12}, {13, 8}, {15, 20}]))#24
