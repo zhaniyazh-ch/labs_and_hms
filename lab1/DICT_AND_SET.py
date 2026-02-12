@@ -133,106 +133,15 @@ def count_leaf_values(d):
             count += 1
     return count
 print(count_leaf_values({"a": 1, "b": [2, 3], "c": {"d": 4, "e": [5, 6]}}))#21
-filter_set = lambda a, b: {x for x in a if x > sum(b)/len(b) and x not in b}
-print(filter_set({1, 5, 10, 15}, {2, 4, 6, 8}))#22
-def group_by_last_letter(words):
-    result = {}
-    for w in words:
-        last = w[-1]
-        if last not in result:
-            result[last] = []
-        if w not in result[last]:
-            result[last].append(w)
-    return result
-print(group_by_last_letter(["apple", "pear", "banana", "kiwi", "papaya"]))#23
-def union_of_filtered_sets(sets_list):
-    result = set()
-    for s in sets_list:
-        filtered = {x for x in s if x > 10 and x % 2 == 1}
-        result |= filtered
-    return result
-print(union_of_filtered_sets([{5, 11, 12}, {13, 8}, {15, 20}]))#24
-import math
-filter_dict = lambda d: {k: math.prod([x for x in v if x > 0]) for k, v in d.items() if any(x > 0 for x in v)}
-print(filter_dict({"a": [1, -2, 3], "b": [-4, -6], "c": [2, 5]}))#25
-def remove_elements_with_common_digits(s):
-    digit_counts = {}
-    for num in s:
-        for d in set(str(abs(num))):
-            digit_counts[d] = digit_counts.get(d, 0) + 1
-    result = set()
-    for num in s:
-        if all(digit_counts[d] == 1 for d in set(str(abs(num)))):
-            result.add(num)
-    return result
-print(remove_elements_with_common_digits({12, 23, 34, 45}))#26
-is_prime = lambda n: n > 1 and all(n % i != 0 for i in range(2, int(n**0.5)+1))
-filter_dict = lambda d: {k: v for k, v in d.items() if is_prime(v) and len(k) % 2 == 1}
-print(filter_dict({"apple": 5, "pear": 4, "kiwi": 7, "banana": 11}))#27
-def sorted_unique_chars(strings):
-    chars = set()
-    for s in strings:
-        for ch in s:
-            if not ch.isdigit() and ch != " ":
-                chars.add(ch)
-    return sorted(chars)
-print(sorted_unique_chars(["hello 123", "world", "python"]))#28
-sort_keys = lambda d: sorted(d.keys(), key=lambda k: (d[k] % 10, k))
-print(sort_keys({"apple": 25, "pear": 32, "kiwi": 42, "banana": 17}))#29
-def partition_by_sum_parity(s):
-    even_sum = set()
-    odd_sum = set()
-    for num in s:
-        digit_sum = sum(int(d) for d in str(abs(num)))
-        if digit_sum % 2 == 0:
-            even_sum.add(num)
+def group_by_parity_and_sort(nums):
+    evens = []
+    odds = []
+    for num in nums:
+        if num % 2 == 0:
+            evens.append(num)
         else:
-            odd_sum.add(num)
-    return (even_sum, odd_sum)
-print(partition_by_sum_parity({12, 23, 34, 45}))#30
-filter_dict = lambda d: {k: v for k, v in d.items() if len(v) == len(set(v)) and all(len(s) > 3 for s in v)}
-print(filter_dict({"a": ["apple", "pear"], "b": ["kiwi", "kiwi"], "c": ["banana", "melon"]}))#31
-def pairwise_intersections(sets_list):
-    if len(sets_list) < 2:
-        return []
-    result = []
-    for i in range(len(sets_list)-1):
-        result.append(sets_list[i] & sets_list[i+1])
-    return result
-print(pairwise_intersections([{1,2,3}, {2,3,4}, {3,4,5}]))#32
-filter_dict = lambda d: {k: v for k, v in d.items()
-                         if sum(v)/len(v) > sum(sum(lst) for lst in d.values()) / sum(len(lst) for lst in d.values())}
-print(filter_dict({"a": [1,2], "b": [10,20], "c": [5,5]}))#33
-def top_k_smallest_unique(nums, k):
-    unique_nums = sorted(set(nums))
-    return set(unique_nums[:k])
-print(top_k_smallest_unique([5,3,1,2,2,4], 3))#34
-filter_dict = lambda d: {k: v for k, v in d.items() if v % 3 != 0 and len(k) % 2 == 1}
-print(filter_dict({"apple": 3, "pear": 4, "kiwi": 9, "banana": 7}))#35
-def all_subsets_of_size_k(s, k):
-    from itertools import combinations
-    return [set(c) for c in combinations(s, k)]
-print(all_subsets_of_size_k({1,2,3}, 2))#36
-import math
-transform_dict = lambda d: {k: (math.factorial(v) if v < 6 else v) for k, v in d.items()}
-print(transform_dict({"a": 3, "b": 6, "c": 2}))#37
-def multi_symmetric_difference(sets_list):
-    if not sets_list:
-        return set()
-    result = sets_list[0].copy()
-    for s in sets_list[1:]:
-        result ^= s
-    return result
-print(multi_symmetric_difference([{1,2}, {2,3}, {3,4}]))#38
-sort_keys = lambda d: sorted(d.keys(), key=lambda k: (sum(ch in "aeiou" for ch in k.lower()), -d[k]))
-print(sort_keys({"apple": 5, "pear": 7, "kiwi": 3, "banana": 10}))#39
-import string
-def analyze_dict_keys(d):
-    chars = set()
-    for k in d.keys():
-        if isinstance(k, str) and not any(ch.isdigit() for ch in k):
-            for ch in k:
-                if ch not in string.punctuation and ch != " ":
-                    chars.add(ch)
-    return chars
-print(analyze_dict_keys({"apple": 1, "pear2": 2, "banana!": 3, "kiwi": 4}))#40
+            odds.append(num)
+    evens.sort()
+    odds.sort()
+    return evens + odds
+print(group_by_parity_and_sort([5, 2, 8, 3, 7, 4]))#22
