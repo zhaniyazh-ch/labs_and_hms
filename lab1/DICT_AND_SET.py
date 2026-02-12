@@ -166,3 +166,6 @@ def remove_elements_with_common_digits(s):
             result.add(num)
     return result
 print(remove_elements_with_common_digits({12, 23, 34, 45}))#26
+is_prime = lambda n: n > 1 and all(n % i != 0 for i in range(2, int(n**0.5)+1))
+filter_dict = lambda d: {k: v for k, v in d.items() if is_prime(v) and len(k) % 2 == 1}
+print(filter_dict({"apple": 5, "pear": 4, "kiwi": 7, "banana": 11}))#27
