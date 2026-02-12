@@ -122,3 +122,14 @@ def filter_by_digit_sum(nums):
 print(filter_by_digit_sum({11, 23, 35, 40, 7}))#19
 top3_keys = lambda d: sorted(d.keys(), key=lambda k: (d[k], len(k)))[:3]
 print(top3_keys({"apple": 5, "pear": 2, "kiwi": 2, "banana": 3}))#20
+def count_leaf_values(d):
+    count = 0
+    for v in d.values():
+        if isinstance(v, dict):
+            count += count_leaf_values(v)
+        elif isinstance(v, list):
+            count += len(v)
+        else:
+            count += 1
+    return count
+print(count_leaf_values({"a": 1, "b": [2, 3], "c": {"d": 4, "e": [5, 6]}}))#21
