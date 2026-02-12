@@ -244,3 +244,14 @@ def flatten_and_filter(lst):
 print(flatten_and_filter([1, [12, -5, [8, 33, [44, 55]]], 7]))#18
 common_even = lambda a, b: [x for x, y in zip(a, b) if x == y and x % 2 == 0]
 print(common_even([2, 4, 6, 7], [2, 5, 6, 7]))#19
+def max_subarray_sum(nums, k):
+    max_sum = None
+    for i in range(len(nums) - k + 1):
+        sub = nums[i:i+k]
+        if all(x > 0 for x in sub):
+            s = sum(sub)
+            if max_sum is None or s > max_sum:
+                max_sum = s
+    return max_sum
+print(max_subarray_sum([1, 2, 3, -1, 4, 5], 3))
+print(max_subarray_sum([0, -2, 3], 2))#20
