@@ -188,3 +188,5 @@ def moving_average(nums, k):
             result.append(avg)
     return result
 print(moving_average([1, 2, 3, -1, 4, 5], 3))#28
+filter_list = lambda a, b: [x for x in a if x not in b and x > sum(a)/len(a)]
+print(filter_list([10, 20, 30, 40], [20, 50]))#29
