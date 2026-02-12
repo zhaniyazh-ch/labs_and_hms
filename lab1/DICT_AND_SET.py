@@ -226,3 +226,13 @@ def multi_symmetric_difference(sets_list):
 print(multi_symmetric_difference([{1,2}, {2,3}, {3,4}]))#38
 sort_keys = lambda d: sorted(d.keys(), key=lambda k: (sum(ch in "aeiou" for ch in k.lower()), -d[k]))
 print(sort_keys({"apple": 5, "pear": 7, "kiwi": 3, "banana": 10}))#39
+import string
+def analyze_dict_keys(d):
+    chars = set()
+    for k in d.keys():
+        if isinstance(k, str) and not any(ch.isdigit() for ch in k):
+            for ch in k:
+                if ch not in string.punctuation and ch != " ":
+                    chars.add(ch)
+    return chars
+print(analyze_dict_keys({"apple": 1, "pear2": 2, "banana!": 3, "kiwi": 4}))#40
