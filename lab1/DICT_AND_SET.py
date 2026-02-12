@@ -120,3 +120,5 @@ def filter_by_digit_sum(nums):
                 result.add(num)
     return result
 print(filter_by_digit_sum({11, 23, 35, 40, 7}))#19
+top3_keys = lambda d: sorted(d.keys(), key=lambda k: (d[k], len(k)))[:3]
+print(top3_keys({"apple": 5, "pear": 2, "kiwi": 2, "banana": 3}))#20
