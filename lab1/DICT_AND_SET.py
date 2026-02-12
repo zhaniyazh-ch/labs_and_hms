@@ -169,3 +169,11 @@ print(remove_elements_with_common_digits({12, 23, 34, 45}))#26
 is_prime = lambda n: n > 1 and all(n % i != 0 for i in range(2, int(n**0.5)+1))
 filter_dict = lambda d: {k: v for k, v in d.items() if is_prime(v) and len(k) % 2 == 1}
 print(filter_dict({"apple": 5, "pear": 4, "kiwi": 7, "banana": 11}))#27
+def sorted_unique_chars(strings):
+    chars = set()
+    for s in strings:
+        for ch in s:
+            if not ch.isdigit() and ch != " ":
+                chars.add(ch)
+    return sorted(chars)
+print(sorted_unique_chars(["hello 123", "world", "python"]))#28
