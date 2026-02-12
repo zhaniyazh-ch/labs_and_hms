@@ -104,3 +104,10 @@ def update_counts(d, items):
 print(update_counts({"apple": 2, "banana": 1}, ["apple", "orange", "banana", "apple"]))#16
 set_op = lambda a, b, c: (a & b) - c
 print(set_op({1, 2, 3}, {2, 3, 4}, {3}))#17
+def sort_dict_by_value_sum(d):
+    items = []
+    for k, v in d.items():
+        items.append((k, sum(v)))
+    items.sort(key=lambda x: (-x[1], x[0]))
+    return items
+print(sort_dict_by_value_sum({"a": [1, 2], "b": [3, 4], "c": [5]}))#18
