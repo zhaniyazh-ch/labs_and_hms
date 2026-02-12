@@ -301,3 +301,5 @@ def remove_duplicates_keep_last(nums):
             result.insert(0, num)
     return result
 print(remove_duplicates_keep_last([1, 2, 3, 2, 4, 3, 5]))#26
+top5_sorted = lambda lst: sorted(lst, key=lambda w: (-len(w), w))[:5]
+print(top5_sorted(["apple", "banana", "pear", "kiwi", "strawberry", "melon", "fig"]))#27
