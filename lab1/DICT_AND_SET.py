@@ -23,3 +23,10 @@ def merge_dicts_sum(d1, d2):
             result[k] = d2[k]
     return result
 print(merge_dicts_sum({"a": 1, "b": 2}, {"b": 3, "c": 4}))#3
+def filter_sets(sets_list):
+    result = []
+    for s in sets_list:
+        if len(s) > 3 and all(x >= 0 for x in s) and any(x % 2 == 0 for x in s):
+            result.append(s)
+    return result
+print(filter_sets([{1, 2, 3, 4}, {5, -1, 6}, {7, 9, 11}, {8, 10, 12, 14}]))#4
