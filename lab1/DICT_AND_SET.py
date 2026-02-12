@@ -12,3 +12,14 @@ filter_set = lambda s: {x for x in s
                         x % 2 == 1 and
                         x % 5 != 0}
 print(filter_set({1, 3, 5, 7, 9, 11, 15}))#2
+def merge_dicts_sum(d1, d2):
+    result = {}
+    for k in d1:
+        result[k] = d1[k]
+    for k in d2:
+        if k in result:
+            result[k] += d2[k]
+        else:
+            result[k] = d2[k]
+    return result
+print(merge_dicts_sum({"a": 1, "b": 2}, {"b": 3, "c": 4}))#3
