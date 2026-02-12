@@ -190,3 +190,5 @@ def partition_by_sum_parity(s):
             odd_sum.add(num)
     return (even_sum, odd_sum)
 print(partition_by_sum_parity({12, 23, 34, 45}))#30
+filter_dict = lambda d: {k: v for k, v in d.items() if len(v) == len(set(v)) and all(len(s) > 3 for s in v)}
+print(filter_dict({"a": ["apple", "pear"], "b": ["kiwi", "kiwi"], "c": ["banana", "melon"]}))#31
