@@ -179,3 +179,14 @@ def sorted_unique_chars(strings):
 print(sorted_unique_chars(["hello 123", "world", "python"]))#28
 sort_keys = lambda d: sorted(d.keys(), key=lambda k: (d[k] % 10, k))
 print(sort_keys({"apple": 25, "pear": 32, "kiwi": 42, "banana": 17}))#29
+def partition_by_sum_parity(s):
+    even_sum = set()
+    odd_sum = set()
+    for num in s:
+        digit_sum = sum(int(d) for d in str(abs(num)))
+        if digit_sum % 2 == 0:
+            even_sum.add(num)
+        else:
+            odd_sum.add(num)
+    return (even_sum, odd_sum)
+print(partition_by_sum_parity({12, 23, 34, 45}))#30
