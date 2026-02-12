@@ -230,3 +230,15 @@ filter_nums = lambda lst: list(
     )
 )
 print(filter_nums([3, 5, 15, 123, 50, 7, 555]))#17
+def flatten_and_filter(lst):
+    result = []
+    def flatten(sublist):
+        for item in sublist:
+            if isinstance(item, list):
+                flatten(item)
+            elif isinstance(item, int):
+                if item > 0 and item % 4 != 0 and len(str(item)) > 1:
+                   result.append(item)
+    flatten(lst)
+    return sorted(result)
+print(flatten_and_filter([1, [12, -5, [8, 33, [44, 55]]], 7]))#18
