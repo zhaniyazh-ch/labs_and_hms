@@ -145,3 +145,7 @@ def group_by_parity_and_sort(nums):
     odds.sort()
     return evens + odds
 print(group_by_parity_and_sort([5, 2, 8, 3, 7, 4]))#22
+is_prime = lambda n: n > 1 and all(n % i != 0 for i in range(2, int(n**0.5) + 1))
+filter_nums = lambda lst: [lst[i] for i in range(len(lst))
+                           if is_prime(i) and lst[i] % 2 == 1 and lst[i] > sum(lst)/len(lst)]
+print(filter_nums([1, 15, 7, 9, 20, 11]))#23
