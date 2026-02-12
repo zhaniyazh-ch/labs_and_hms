@@ -133,3 +133,11 @@ def alternate_case_blocks(text, n):
         block_num += 1
     return "".join(result)
 print(alternate_case_blocks("abcdefghijklmno", 3))#9
+count_words = lambda s: sum(
+    1 for w in s.split()
+    if any(ch.isdigit() for ch in w) and
+       not w[0].isdigit() and
+       len(w) >= 5
+)
+text = "abc12 word5 test1234 9start hello123"
+print(count_words(text))#10
