@@ -65,3 +65,21 @@ p_words = lambda s: " ".join(
 )
 text = "heLlo World TesTing teSt"
 print(p_words(text))#4
+def compress_text(text):
+    if not text:
+        return ""
+    result = []
+    i = 0
+    while i < len(text):
+        count = 1
+        char = text[i]
+        while i + count < len(text) and text[i + count].lower() == char.lower():
+            count += 1
+        if count == 1:
+            result.append(char)
+        else:
+            result.append(char + str(count))
+        i += count
+    return "".join(result)
+print(compress_text("aaBBcDDD"))
+print(compress_text("HelloooOO"))#5
