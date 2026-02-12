@@ -207,3 +207,5 @@ def top_k_smallest_unique(nums, k):
     unique_nums = sorted(set(nums))
     return set(unique_nums[:k])
 print(top_k_smallest_unique([5,3,1,2,2,4], 3))#34
+filter_dict = lambda d: {k: v for k, v in d.items() if v % 3 != 0 and len(k) % 2 == 1}
+print(filter_dict({"apple": 3, "pear": 4, "kiwi": 9, "banana": 7}))#35
