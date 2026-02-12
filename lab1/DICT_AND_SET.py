@@ -62,3 +62,13 @@ print(common_elements_all([{1, 2, 3}, {2, 3, 4}, {3, 2, 5}]))#9
 filter_dict = lambda d: {k: sorted([x for x in v if x % 2 == 1])
                          for k, v in d.items() if any(x % 2 == 1 for x in v)}
 print(filter_dict({"a": [1, 2, 3], "b": [4, 6], "c": [7, 9]}))#10
+def group_by_length(words):
+    result = {}
+    for w in words:
+        l = len(w)
+        if l not in result:
+            result[l] = []
+        if w not in result[l]:
+            result[l].append(w)
+    return result
+print(group_by_length(["apple", "pear", "banana", "pear", "kiwi"]))#11
