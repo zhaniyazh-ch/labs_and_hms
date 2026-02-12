@@ -189,3 +189,19 @@ filter_words = lambda s: ",".join(
 )
 text = "hello abcd unique queue test"
 print(filter_words(text))#14
+def word_pattern_sort(text):
+    words = text.split()
+    groups = {}
+    for w in words:
+        l = len(w)
+        if l not in groups:
+            groups[l] = []
+        groups[l].append(w)
+    result = []
+    for length in sorted(groups.keys()):
+        group = groups[length]
+        group.sort(key=lambda w: (-sum(ch.lower() in "aeiou" for ch in w), w))
+        result.extend(group)
+    return result
+text = "apple banana cat dog elephant igloo"
+print(word_pattern_sort(text))#15
