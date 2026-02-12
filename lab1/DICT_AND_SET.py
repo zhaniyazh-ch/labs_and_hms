@@ -51,3 +51,11 @@ def sort_dict_by_value_length(d):
     items.sort(key=lambda kv: (len(kv[1]), kv[0]))
     return items
 print(sort_dict_by_value_length({"a": "apple", "b": "kiwi", "c": "banana"}))#8
+def common_elements_all(sets_list):
+    if not sets_list:
+        return set()
+    common = sets_list[0].copy()
+    for s in sets_list[1:]:
+        common &= s
+    return common
+print(common_elements_all([{1, 2, 3}, {2, 3, 4}, {3, 2, 5}]))#9
