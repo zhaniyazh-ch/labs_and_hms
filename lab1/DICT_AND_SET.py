@@ -209,3 +209,7 @@ def top_k_smallest_unique(nums, k):
 print(top_k_smallest_unique([5,3,1,2,2,4], 3))#34
 filter_dict = lambda d: {k: v for k, v in d.items() if v % 3 != 0 and len(k) % 2 == 1}
 print(filter_dict({"apple": 3, "pear": 4, "kiwi": 9, "banana": 7}))#35
+def all_subsets_of_size_k(s, k):
+    from itertools import combinations
+    return [set(c) for c in combinations(s, k)]
+print(all_subsets_of_size_k({1,2,3}, 2))#36
