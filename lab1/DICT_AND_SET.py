@@ -177,3 +177,5 @@ def sorted_unique_chars(strings):
                 chars.add(ch)
     return sorted(chars)
 print(sorted_unique_chars(["hello 123", "world", "python"]))#28
+sort_keys = lambda d: sorted(d.keys(), key=lambda k: (d[k] % 10, k))
+print(sort_keys({"apple": 25, "pear": 32, "kiwi": 42, "banana": 17}))#29
