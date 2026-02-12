@@ -255,3 +255,5 @@ def max_subarray_sum(nums, k):
     return max_sum
 print(max_subarray_sum([1, 2, 3, -1, 4, 5], 3))
 print(max_subarray_sum([0, -2, 3], 2))#20
+filter_strings = lambda lst: [w.upper() for w in lst if w.isalpha() and len(w) > 4 and len(set(w.lower())) == len(w)]
+print(filter_strings(["hello", "world", "apple", "unique", "abcde"]))#21
