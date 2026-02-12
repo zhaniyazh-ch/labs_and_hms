@@ -192,3 +192,11 @@ def partition_by_sum_parity(s):
 print(partition_by_sum_parity({12, 23, 34, 45}))#30
 filter_dict = lambda d: {k: v for k, v in d.items() if len(v) == len(set(v)) and all(len(s) > 3 for s in v)}
 print(filter_dict({"a": ["apple", "pear"], "b": ["kiwi", "kiwi"], "c": ["banana", "melon"]}))#31
+def pairwise_intersections(sets_list):
+    if len(sets_list) < 2:
+        return []
+    result = []
+    for i in range(len(sets_list)-1):
+        result.append(sets_list[i] & sets_list[i+1])
+    return result
+print(pairwise_intersections([{1,2,3}, {2,3,4}, {3,4,5}]))#32
