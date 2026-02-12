@@ -92,3 +92,5 @@ def top_k_frequent(nums, k):
     top_k = [num for num, _ in sorted_nums[:k]]
     return set(top_k)
 print(top_k_frequent([1, 2, 2, 3, 3, 3, 4], 2))#14
+filter_dict = lambda d: {k: v for k, v in d.items() if v >= sum(d.values())/len(d) and v % 2 == 1}
+print(filter_dict({"a": 1, "b": 2, "c": 5, "d": 7}))#15
