@@ -59,3 +59,6 @@ def common_elements_all(sets_list):
         common &= s
     return common
 print(common_elements_all([{1, 2, 3}, {2, 3, 4}, {3, 2, 5}]))#9
+filter_dict = lambda d: {k: sorted([x for x in v if x % 2 == 1])
+                         for k, v in d.items() if any(x % 2 == 1 for x in v)}
+print(filter_dict({"a": [1, 2, 3], "b": [4, 6], "c": [7, 9]}))#10
