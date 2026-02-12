@@ -7,3 +7,8 @@ def invert_unique(d):
             result[v].append(k)
     return result
 print(invert_unique({"a": 1, "b": 2, "c": 1, "d": 2, "e": 3}))#1
+filter_set = lambda s: {x for x in s
+                        if x > sum(s)/len(s) and
+                        x % 2 == 1 and
+                        x % 5 != 0}
+print(filter_set({1, 3, 5, 7, 9, 11, 15}))#2
