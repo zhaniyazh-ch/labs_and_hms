@@ -111,3 +111,12 @@ def sort_dict_by_value_sum(d):
     items.sort(key=lambda x: (-x[1], x[0]))
     return items
 print(sort_dict_by_value_sum({"a": [1, 2], "b": [3, 4], "c": [5]}))#18
+def filter_by_digit_sum(nums):
+    result = set()
+    for num in nums:
+        if num % 2 == 1:
+            digit_sum = sum(int(d) for d in str(abs(num)))
+            if digit_sum % 2 == 0:
+                result.add(num)
+    return result
+print(filter_by_digit_sum({11, 23, 35, 40, 7}))#19
