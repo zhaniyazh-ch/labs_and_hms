@@ -162,3 +162,21 @@ process_words = lambda s: list(
 )
 text = "anna abca test level noon abba"
 print(process_words(text))#12
+def replace_every_nth(text, n, char):
+    result = []
+    count = 0
+    word = ""
+    for ch in text:
+        if ch == " ":
+            result.append(word)
+            result.append(" ")
+            word = ""
+            count = 0
+        else:
+            word += ch
+            count += 1
+            if count % n == 0 and len(word) >= 3 and not ch.isdigit():
+                word = word[:-1] + char
+    result.append(word)
+    return "".join(result)
+print(replace_every_nth("hello world 12a", 2, "*"))#13
