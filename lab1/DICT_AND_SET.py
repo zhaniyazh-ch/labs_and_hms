@@ -46,3 +46,8 @@ def deep_sum(d):
 print(deep_sum({"a": 5, "b": [1, 2], "c": {"d": 3, "e": [4, 5]}}))#6
 symmetric_even = lambda a, b: {x for x in a ^ b if x % 2 == 0}
 print(symmetric_even({1, 2, 4, 6}, {2, 3, 6, 8}))#7
+def sort_dict_by_value_length(d):
+    items = list(d.items())
+    items.sort(key=lambda kv: (len(kv[1]), kv[0]))
+    return items
+print(sort_dict_by_value_length({"a": "apple", "b": "kiwi", "c": "banana"}))#8
