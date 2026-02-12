@@ -52,3 +52,16 @@ def top_k_words(text, k):
     return [w for w, c in sorted_words[:k]]
 text = "Salem alem, kun zhainap tyr bugin"
 print(top_k_words(text, 3))#3
+p_words = lambda s: " ".join(
+    map(
+        lambda w: w.lower(),
+        filter(
+            lambda w: sum(ch.isupper() for ch in w) == 1 and
+                      not w[0].isupper() and
+                      not w[-1].isupper(),
+            s.split()
+        )
+    )
+)
+text = "heLlo World TesTing teSt"
+print(p_words(text))#4
