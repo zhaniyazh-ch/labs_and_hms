@@ -314,3 +314,18 @@ def moving_average(nums, k):
 print(moving_average([1, 2, 3, -1, 4, 5], 3))#28
 filter_list = lambda a, b: [x for x in a if x not in b and x > sum(a)/len(a)]
 print(filter_list([10, 20, 30, 40], [20, 50]))#29
+def analyze_strings_list(words):
+    result = []
+    seen = set()
+    for w in words:
+        if any(ch.isdigit() for ch in w):
+            continue
+        if len(w) % 2 == 0:
+            transformed = w[::-1]
+        else:
+            transformed = w.upper()
+        if transformed not in seen:
+            result.append(transformed)
+            seen.add(transformed)
+    return result
+print(analyze_strings_list(["hello", "world", "test1", "data", "hello", "python"]))#30
