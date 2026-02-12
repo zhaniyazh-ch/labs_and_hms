@@ -94,3 +94,11 @@ def top_k_frequent(nums, k):
 print(top_k_frequent([1, 2, 2, 3, 3, 3, 4], 2))#14
 filter_dict = lambda d: {k: v for k, v in d.items() if v >= sum(d.values())/len(d) and v % 2 == 1}
 print(filter_dict({"a": 1, "b": 2, "c": 5, "d": 7}))#15
+def update_counts(d, items):
+    for item in items:
+        if item in d:
+            d[item] += 1
+        else:
+            d[item] = 1
+    return d
+print(update_counts({"apple": 2, "banana": 1}, ["apple", "orange", "banana", "apple"]))#16
