@@ -141,3 +141,14 @@ count_words = lambda s: sum(
 )
 text = "abc12 word5 test1234 9start hello123"
 print(count_words(text))#10
+def common_unique_chars(s1, s2):
+    result = []
+    seen = set()
+    for ch in s1:
+        if ch == " " or ch.isdigit():
+            continue
+        if ch in s2 and ch not in seen:
+            result.append(ch)
+            seen.add(ch)
+    return "".join(result)
+print(common_unique_chars("Hello World123", "Hold Well"))#11
