@@ -84,3 +84,11 @@ def invert_dict_strict(d):
             result[v] = k
     return result
 print(invert_dict_strict({"a": 1, "b": 2, "c": 1, "d": 3}))#13
+def top_k_frequent(nums, k):
+    freq = {}
+    for num in nums:
+        freq[num] = freq.get(num, 0) + 1
+    sorted_nums = sorted(freq.items(), key=lambda x: (-x[1], x[0]))
+    top_k = [num for num, _ in sorted_nums[:k]]
+    return set(top_k)
+print(top_k_frequent([1, 2, 2, 3, 3, 3, 4], 2))#14
