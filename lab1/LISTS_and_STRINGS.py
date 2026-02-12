@@ -180,3 +180,12 @@ def replace_every_nth(text, n, char):
     result.append(word)
     return "".join(result)
 print(replace_every_nth("hello world 12a", 2, "*"))#13
+filter_words = lambda s: ",".join(
+    filter(
+        lambda w: len(set([ch.lower() for ch in w if ch.isalpha()])) > 3 and
+                  all(w.lower().count(v) <= 1 for v in "aeiou"),
+        s.split()
+    )
+)
+text = "hello abcd unique queue test"
+print(filter_words(text))#14
