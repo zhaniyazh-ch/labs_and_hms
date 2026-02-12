@@ -107,3 +107,15 @@ def palindrome_words(text):
     return palindromes
 text = "Anna went to kayak race, level was high, wow!"
 print(palindrome_words(text))#7
+process_text = lambda s: " ".join(
+    map(
+        lambda w: (
+            "VOWEL" if w[0].lower() in "aeiou" and not any(ch.isdigit() for ch in w)
+            else "CONSONANT" if w[0].isalpha() and not any(ch.isdigit() for ch in w)
+            else w
+        ),
+        s.split()
+    )
+)
+text = "nege zhazu kerek"
+print(process_text(text))#8
