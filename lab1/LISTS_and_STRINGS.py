@@ -289,3 +289,6 @@ def longest_increasing_sublist(nums):
         longest = current
     return longest
 print(longest_increasing_sublist([1, 2, 3, 1, 2, 3, 4]))#24
+filter_lists = lambda lst: [sum(sub)/len(sub) for sub in lst
+                            if len(sub) >= 3 and sum(sub) % 2 == 0]
+print(filter_lists([[1, 2, 3], [4, 6, 8], [5, 5, 5], [10, 20]]))#25
