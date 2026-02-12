@@ -44,3 +44,5 @@ def deep_sum(d):
             total += deep_sum(v)
     return total
 print(deep_sum({"a": 5, "b": [1, 2], "c": {"d": 3, "e": [4, 5]}}))#6
+symmetric_even = lambda a, b: {x for x in a ^ b if x % 2 == 0}
+print(symmetric_even({1, 2, 4, 6}, {2, 3, 6, 8}))#7
