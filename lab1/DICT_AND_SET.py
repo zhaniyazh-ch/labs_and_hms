@@ -155,3 +155,14 @@ print(union_of_filtered_sets([{5, 11, 12}, {13, 8}, {15, 20}]))#24
 import math
 filter_dict = lambda d: {k: math.prod([x for x in v if x > 0]) for k, v in d.items() if any(x > 0 for x in v)}
 print(filter_dict({"a": [1, -2, 3], "b": [-4, -6], "c": [2, 5]}))#25
+def remove_elements_with_common_digits(s):
+    digit_counts = {}
+    for num in s:
+        for d in set(str(abs(num))):
+            digit_counts[d] = digit_counts.get(d, 0) + 1
+    result = set()
+    for num in s:
+        if all(digit_counts[d] == 1 for d in set(str(abs(num)))):
+            result.add(num)
+    return result
+print(remove_elements_with_common_digits({12, 23, 34, 45}))#26
