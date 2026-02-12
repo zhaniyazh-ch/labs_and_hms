@@ -135,3 +135,13 @@ def count_leaf_values(d):
 print(count_leaf_values({"a": 1, "b": [2, 3], "c": {"d": 4, "e": [5, 6]}}))#21
 filter_set = lambda a, b: {x for x in a if x > sum(b)/len(b) and x not in b}
 print(filter_set({1, 5, 10, 15}, {2, 4, 6, 8}))#22
+def group_by_last_letter(words):
+    result = {}
+    for w in words:
+        last = w[-1]
+        if last not in result:
+            result[last] = []
+        if w not in result[last]:
+            result[last].append(w)
+    return result
+print(group_by_last_letter(["apple", "pear", "banana", "kiwi", "papaya"]))#23
