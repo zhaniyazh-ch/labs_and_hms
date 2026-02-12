@@ -74,3 +74,13 @@ def group_by_length(words):
 print(group_by_length(["apple", "pear", "banana", "pear", "kiwi"]))#11
 filter_strings = lambda s: {w for w in s if w.isalpha() and len(w) > 4 and len(set(w.lower())) == len(w)}
 print(filter_strings({"hello", "world", "apple", "unique", "abcde"}))#12
+def invert_dict_strict(d):
+    counts = {}
+    for v in d.values():
+        counts[v] = counts.get(v, 0) + 1
+    result = {}
+    for k, v in d.items():
+        if counts[v] == 1:
+            result[v] = k
+    return result
+print(invert_dict_strict({"a": 1, "b": 2, "c": 1, "d": 3}))#13
