@@ -83,3 +83,13 @@ def compress_text(text):
     return "".join(result)
 print(compress_text("aaBBcDDD"))
 print(compress_text("HelloooOO"))#5
+filter_words = lambda s: list(
+    filter(
+        lambda w: len(w) >= 4 and
+                  all(ch.isalpha() for ch in w) and
+                  len(set(w.lower())) == len(w),
+        s.split()
+    )
+)
+text = "Bilmim ne zhazuga boladu 576"
+print(filter_words(text))#6
