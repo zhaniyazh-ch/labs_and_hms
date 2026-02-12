@@ -152,3 +152,13 @@ def common_unique_chars(s1, s2):
             seen.add(ch)
     return "".join(result)
 print(common_unique_chars("Hello World123", "Hold Well"))#11
+process_words = lambda s: list(
+    filter(
+        lambda w: len(w) > 3 and
+                  w[0].lower() == w[-1].lower() and
+                  w.lower() != w[::-1].lower(),
+        s.split()
+    )
+)
+text = "anna abca test level noon abba"
+print(process_words(text))#12
