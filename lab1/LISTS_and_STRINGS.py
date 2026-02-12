@@ -21,19 +21,3 @@ def analyze_text(text):
     return [len(unique_vowels), " ".join(result_words)]
 text = "Aiym said that:we was going to the cinema!"
 print(analyze_text(text))#1
-
-process_string = lambda s: " ".join(
-    filter(
-        lambda w: len(w) % 2 == 0,
-        map(
-            lambda w: w[::-1],
-            filter(
-                lambda w: not any(ch.isdigit() for ch in w),
-                s.split()
-            )
-        )
-    )
-)
-text = "hello world546 python code73 data"
-result = process_string(text)
-print(result)#2
