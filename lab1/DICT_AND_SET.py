@@ -216,3 +216,11 @@ print(all_subsets_of_size_k({1,2,3}, 2))#36
 import math
 transform_dict = lambda d: {k: (math.factorial(v) if v < 6 else v) for k, v in d.items()}
 print(transform_dict({"a": 3, "b": 6, "c": 2}))#37
+def multi_symmetric_difference(sets_list):
+    if not sets_list:
+        return set()
+    result = sets_list[0].copy()
+    for s in sets_list[1:]:
+        result ^= s
+    return result
+print(multi_symmetric_difference([{1,2}, {2,3}, {3,4}]))#38
