@@ -218,3 +218,15 @@ def transform_list(nums):
             result.append(num)
     return result
 print(transform_list([-5, 2, 3, 11, 14, 7]))#16
+filter_nums = lambda lst: list(
+    map(
+        lambda x: x**2,
+        filter(
+            lambda x: ((x % 3 == 0 or x % 5 == 0) and
+                       x % 15 != 0 and
+                       len(str(abs(x))) % 2 == 1),
+            lst
+        )
+    )
+)
+print(filter_nums([3, 5, 15, 123, 50, 7, 555]))#17
