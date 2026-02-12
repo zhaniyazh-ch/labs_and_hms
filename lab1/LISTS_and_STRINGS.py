@@ -93,3 +93,17 @@ filter_words = lambda s: list(
 )
 text = "Bilmim ne zhazuga boladu 576"
 print(filter_words(text))#6
+import string
+def palindrome_words(text):
+    for p in string.punctuation:
+        text = text.replace(p, "")
+    words = text.lower().split()
+    palindromes = []
+    for w in words:
+        if len(w) >= 3 and w == w[::-1]:
+            if w not in palindromes:
+                palindromes.append(w)
+    palindromes.sort(key=lambda x: (-len(x), x))
+    return palindromes
+text = "Anna went to kayak race, level was high, wow!"
+print(palindrome_words(text))#7
