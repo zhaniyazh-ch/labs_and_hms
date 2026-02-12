@@ -36,3 +36,19 @@ process_string = lambda s: " ".join(
 text = "hello world546 python code73 data"
 result = process_string(text)
 print(result)#2
+import string
+def top_k_words(text, k):
+    text = text.lower()
+    for p in string.punctuation:
+        text = text.replace(p, "")
+    words = text.split()
+    freq = {}
+    for w in words:
+        if w in freq:
+            freq[w] += 1
+        else:
+            freq[w] = 1
+    sorted_words = sorted(freq.items(), key=lambda x: (-x[1], x[0]))
+    return [w for w, c in sorted_words[:k]]
+text = "Salem alem, kun zhainap tyr bugin"
+print(top_k_words(text, 3))#3
