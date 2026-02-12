@@ -102,3 +102,5 @@ def update_counts(d, items):
             d[item] = 1
     return d
 print(update_counts({"apple": 2, "banana": 1}, ["apple", "orange", "banana", "apple"]))#16
+set_op = lambda a, b, c: (a & b) - c
+print(set_op({1, 2, 3}, {2, 3, 4}, {3}))#17
