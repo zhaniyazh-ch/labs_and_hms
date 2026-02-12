@@ -213,3 +213,6 @@ def all_subsets_of_size_k(s, k):
     from itertools import combinations
     return [set(c) for c in combinations(s, k)]
 print(all_subsets_of_size_k({1,2,3}, 2))#36
+import math
+transform_dict = lambda d: {k: (math.factorial(v) if v < 6 else v) for k, v in d.items()}
+print(transform_dict({"a": 3, "b": 6, "c": 2}))#37
