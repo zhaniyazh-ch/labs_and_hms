@@ -203,3 +203,7 @@ print(pairwise_intersections([{1,2,3}, {2,3,4}, {3,4,5}]))#32
 filter_dict = lambda d: {k: v for k, v in d.items()
                          if sum(v)/len(v) > sum(sum(lst) for lst in d.values()) / sum(len(lst) for lst in d.values())}
 print(filter_dict({"a": [1,2], "b": [10,20], "c": [5,5]}))#33
+def top_k_smallest_unique(nums, k):
+    unique_nums = sorted(set(nums))
+    return set(unique_nums[:k])
+print(top_k_smallest_unique([5,3,1,2,2,4], 3))#34
