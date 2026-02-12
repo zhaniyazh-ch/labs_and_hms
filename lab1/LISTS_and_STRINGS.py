@@ -119,3 +119,17 @@ process_text = lambda s: " ".join(
 )
 text = "nege zhazu kerek"
 print(process_text(text))#8
+def alternate_case_blocks(text, n):
+    result = []
+    i = 0
+    block_num = 0
+    while i < len(text):
+        block = text[i:i+n]
+        if block_num % 2 == 0:
+            result.append(block.upper())
+        else:
+            result.append(block.lower())
+        i += n
+        block_num += 1
+    return "".join(result)
+print(alternate_case_blocks("abcdefghijklmno", 3))#9
