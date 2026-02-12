@@ -72,3 +72,5 @@ def group_by_length(words):
             result[l].append(w)
     return result
 print(group_by_length(["apple", "pear", "banana", "pear", "kiwi"]))#11
+filter_strings = lambda s: {w for w in s if w.isalpha() and len(w) > 4 and len(set(w.lower())) == len(w)}
+print(filter_strings({"hello", "world", "apple", "unique", "abcde"}))#12
