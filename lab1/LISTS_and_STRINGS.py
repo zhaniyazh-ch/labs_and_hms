@@ -257,3 +257,15 @@ print(max_subarray_sum([1, 2, 3, -1, 4, 5], 3))
 print(max_subarray_sum([0, -2, 3], 2))#20
 filter_strings = lambda lst: [w.upper() for w in lst if w.isalpha() and len(w) > 4 and len(set(w.lower())) == len(w)]
 print(filter_strings(["hello", "world", "apple", "unique", "abcde"]))#21
+def group_by_parity_and_sort(nums):
+    evens = []
+    odds = []
+    for num in nums:
+        if num % 2 == 0:
+            evens.append(num)
+        else:
+            odds.append(num)
+    evens.sort()
+    odds.sort()
+    return evens + odds
+print(group_by_parity_and_sort([5, 2, 8, 3, 7, 4]))#22
