@@ -4,7 +4,9 @@ with open("shop_logs.txt", "r", encoding="utf-8") as file:
     total_sum = 0
     user_spending = {}
     for line in file:
+        print(line)
         parts = line.strip().split(";")
+        print(parts)
         user_id = parts[1]
         action = parts[2]
         unique_users.add(user_id)
