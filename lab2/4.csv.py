@@ -1,5 +1,15 @@
 import csv
 import json
+with open("transactions.csv", "w", newline="", encoding="utf-8") as file:
+    writer = csv.writer(file)
+    writer.writerow(["user_id", "amount"])
+    writer.writerow(["user_1", 5000])
+    writer.writerow(["user_2", 10000])
+    writer.writerow(["user_1", 700000])
+    writer.writerow(["user_3", 3000])
+    writer.writerow(["user_2", 900000])
+    writer.writerow(["user_4", 2000])
+print("Файл transactions.csv создан.")
 transactions = []
 with open("transactions.csv", newline="", encoding="utf-8") as f:
     reader = csv.DictReader(f)
