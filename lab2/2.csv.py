@@ -1,4 +1,13 @@
 import csv
+with open("employees.csv", "w", newline="", encoding="utf-8") as file:
+    writer = csv.writer(file)
+    writer.writerow(["name", "department", "salary"])
+    writer.writerow(["Ali", "IT", 500000])
+    writer.writerow(["Dana", "HR", 300000])
+    writer.writerow(["Arman", "IT", 600000])
+    writer.writerow(["Aruzhan", "Marketing", 400000])
+    writer.writerow(["Dias", "IT", 450000])
+print("Файл employees.csv создан.")
 employees = []
 with open("employees.csv", newline="", encoding="utf-8") as f:
     reader = csv.DictReader(f)
