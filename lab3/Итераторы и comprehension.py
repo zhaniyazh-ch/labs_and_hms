@@ -22,3 +22,12 @@ matrix = [[1,2], [3,4], [5,6]]
 flatten = [x for row in matrix for x in row]
 print(flatten)
 
+#6 Сложные вложенные условия
+result = [
+    "FizzBuzz" if n % 3 == 0 and n % 5 == 0
+    else "Fizz" if n % 3 == 0
+    else "Buzz" if n % 5 == 0
+    else n
+    for n in range(1, 21)
+]
+print(result)
