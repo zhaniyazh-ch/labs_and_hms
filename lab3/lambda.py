@@ -18,3 +18,9 @@ print(result)
 numbers = [1, 2, 3, 4, 5, 6]
 result = list(map(lambda x: x**2 if x % 2 == 0 else x*3, numbers))
 print(result)
+
+#5 Лямбда с несколькими аргументами
+compare = lambda a, b: "a больше" if a > b else ("b больше" if b > a else "равны")
+print(compare(10, 7))
+print(compare(3, 5))
+print(compare(4, 4))
