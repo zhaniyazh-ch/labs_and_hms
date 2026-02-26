@@ -20,3 +20,8 @@ def special_numbers(n):
             yield i
 for x in special_numbers(15):
     print(x)
+
+#2 List comprehension + lambda + условия
+words = ["кот", "машина", "арбуз", "дом", "ананас"]
+result = [(lambda w: (w.upper() if len(w) > 4 else "short") + ("*" if "а" in w else ""))(w) for w in words]
+print(result)
