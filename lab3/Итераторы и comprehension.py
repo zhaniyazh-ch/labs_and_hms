@@ -12,3 +12,8 @@ words = ["кот", "машина", "ананас", "дом"]
 filtered = [w for w in words if len(w) > 4 and "а" not in w]
 print(filtered)
 
+#4 Словарь с условиями
+numbers = [1,2,3,4,5]
+result = {n: ("чётное" if n % 2 == 0 else "нечётное") for n in numbers}
+print(result)
+
