@@ -8,3 +8,8 @@ print(check(0))
 words = ["арбуз", "кот", "машина", "дом", "ананас"]
 sorted_words = sorted(words, key=lambda w: (len(w), w[0]))
 print(sorted_words)
+
+#3 Фильтр по условию
+numbers = [5, 12, 7, 20, 33, 8]
+result = list(filter(lambda x: x % 2 == 0 and x > 10, numbers))
+print(result)
