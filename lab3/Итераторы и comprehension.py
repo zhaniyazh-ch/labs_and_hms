@@ -17,3 +17,8 @@ numbers = [1,2,3,4,5]
 result = {n: ("чётное" if n % 2 == 0 else "нечётное") for n in numbers}
 print(result)
 
+#5 Flatten списка списков
+matrix = [[1,2], [3,4], [5,6]]
+flatten = [x for row in matrix for x in row]
+print(flatten)
+
