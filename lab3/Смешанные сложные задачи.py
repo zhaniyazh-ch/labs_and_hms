@@ -41,3 +41,23 @@ students = [("Иван", 85), ("Анна", 72), ("Пётр", 90), ("Мария",
 grade_level = lambda score: "Отлично" if score >= 90 else ("Хорошо" if score >= 70 else "Удовлетворительно")
 result = {name: grade_level(score) for name, score in students}
 print(result)
+
+#5 Смешанный comprehension + генератор
+def matrix_transform(matrix):
+    for row in matrix:
+        for num in row:
+            if num % 6 == 0:
+                yield "кратно 6"
+            elif num % 2 == 0:
+                yield "чётное"
+            elif num % 3 == 0:
+                yield "кратно 3"
+            else:
+                yield num
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+for x in matrix_transform(matrix):
+    print(x)
