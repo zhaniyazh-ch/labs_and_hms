@@ -25,3 +25,19 @@ for x in special_numbers(15):
 words = ["кот", "машина", "арбуз", "дом", "ананас"]
 result = [(lambda w: (w.upper() if len(w) > 4 else "short") + ("*" if "а" in w else ""))(w) for w in words]
 print(result)
+
+#3 Генератор + map + filter + условия
+def process_numbers(numbers):
+    for num in numbers:
+        yield num
+numbers = [5, -2, 8, 0, -7, 3]
+filtered = filter(lambda x: x >= 0, process_numbers(numbers))
+result = map(lambda x: x/2 if x % 2 == 0 else x*3 + 1, filtered)
+for x in result:
+    print(x)
+
+#4 Dict comprehension + lambda + вложенные условия
+students = [("Иван", 85), ("Анна", 72), ("Пётр", 90), ("Мария", 60)]
+grade_level = lambda score: "Отлично" if score >= 90 else ("Хорошо" if score >= 70 else "Удовлетворительно")
+result = {name: grade_level(score) for name, score in students}
+print(result)
